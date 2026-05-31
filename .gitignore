@@ -1,0 +1,11 @@
+target/
+data/
+*.txt
+/*.md
+!/README.md
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.DS_Store

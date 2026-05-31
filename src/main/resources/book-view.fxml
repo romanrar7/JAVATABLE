@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="library.BookController">
+    <top>
+        <VBox spacing="8">
+            <padding>
+                <Insets top="12" right="12" bottom="8" left="12"/>
+            </padding>
+            <Label text="Пошук книги"/>
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Label text="Назва:"/>
+                <TextField fx:id="searchTitle" prefWidth="180"/>
+                <Label text="Автор:"/>
+                <TextField fx:id="searchAuthor" prefWidth="180"/>
+                <Button text="Знайти" onAction="#onSearch"/>
+                <Button text="Усі книги" onAction="#onShowAll"/>
+            </HBox>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="table">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                <TableColumn fx:id="colTitle" text="Назва" prefWidth="290"/>
+                <TableColumn fx:id="colAuthor" text="Автор" prefWidth="220"/>
+                <TableColumn fx:id="colYear" text="Рік" prefWidth="80"/>
+                <TableColumn fx:id="colCopies" text="Кількість" prefWidth="100"/>
+            </columns>
+            <padding>
+                <Insets left="12" right="12"/>
+            </padding>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox spacing="8">
+            <padding>
+                <Insets top="8" right="12" bottom="12" left="12"/>
+            </padding>
+            <Label text="Дані книги"/>
+            <GridPane hgap="8" vgap="8">
+                <Label text="Назва:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="titleField" prefWidth="260" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Автор:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="authorField" prefWidth="220" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                <Label text="Рік:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="yearField" prefWidth="100" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Кількість:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="copiesField" prefWidth="100" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+            </GridPane>
+            <HBox spacing="8">
+                <Button text="Нова" onAction="#onNew"/>
+                <Button fx:id="saveButton" text="Додати" onAction="#onSave"/>
+                <Button text="Видалити" onAction="#onDelete"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
